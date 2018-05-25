@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>본관동-3층 엘레베이터 앞</title>
+<body>
+  <h1>3층 엘레베이터 앞</h1>
+  <div id="photosphere"></div>
+<link rel="stylesheet" href="https://photo-sphere-viewer.js.org/node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.css">
+<script src="https://photo-sphere-viewer.js.org/node_modules/three/build/three.min.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/d.js/lib/D.min.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/dot/doT.min.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/uevent/uevent.min.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/three/examples/js/renderers/CanvasRenderer.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/three/examples/js/renderers/Projector.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.js"></script>
+
+
+<script>
+  var PSV = new PhotoSphereViewer({
+    panorama: "https://i.imgur.com/woVQvQ1.jpg",
+    container: 'photosphere',
+    caption: '대구과학고등학교 본관동 3층 엘레베이터 앞',
+    loading_img: "https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif",
+    navbar: 'autorotate zoom download caption fullscreen',
+    default_fov: 70,
+    default_lat: 0.3,
+    mousewheel: false,
+    size: {
+      height: 800
+    }
+  });
+</script>
+<form action = "/location/체육관/" method="post">
+  {% csrf_token %}
+  <button name="choice" >체육관으로 가기</button>
+</form>
+
+<form action = "/location/3층 복도/" method="post">
+  {% csrf_token %}
+  <button name="choice" >복도로 가기</button>
+</form>
+
+
+  
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{building}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<h1>{{building}}</h1>
+<br>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td><B>이름</B></td>
+            <td><B>소개</B></td>
+            <td><B>층수</B></td>
+            <td><B>보기</B></td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for location in locations %}    
+        <tr>
+            <td> {{location.name}}</td>
+            <td> {{location.introduction}}</td>
+            <td> {{location.floor_number}}층 </td>
+            <td>
+                <form action = "/location/{{location.name}}/" method="post">
+                    {% csrf_token %}
+                    <button name="choice" value="{{location.id}}">보기</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}    
+        </tbody>
+    </table>
+</div>
+</body>

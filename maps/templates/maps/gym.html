@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>체육관</title>
+<body>
+  <h1>체육관</h1>
+  <div id="photosphere"></div>
+<link rel="stylesheet" href="https://photo-sphere-viewer.js.org/node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.css">
+<script src="https://photo-sphere-viewer.js.org/node_modules/three/build/three.min.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/d.js/lib/D.min.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/dot/doT.min.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/uevent/uevent.min.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/three/examples/js/renderers/CanvasRenderer.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/three/examples/js/renderers/Projector.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.js"></script>
+
+
+<script>
+  var PSV = new PhotoSphereViewer({
+    panorama: "https://i.imgur.com/gQP2cMI.jpg",
+    container: 'photosphere',
+    caption: '대구과학고등학교 본관동 3층 체육관',
+    loading_img: "https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif",
+    navbar: 'autorotate zoom download caption fullscreen',
+    default_fov: 70,
+    default_lat: 0.3,
+    mousewheel: false,
+    size: {
+      height: 800
+    }
+  });
+</script>
+<form action = "/location/3층 엘레베이터 앞/" method="post">
+  {% csrf_token %}
+  <button name="choice" >체육관 나가기</button>
+</form>
+
+<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+  <div id="player"></div>
+
+<script>
+     // 2. This code loads the IFrame Player API code asynchronously. 
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+    function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '360',
+      width: '640',
+      videoId: 'tjM6FpXPwHA',
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange' : onPlayerStateChange
+          }
+        });
+      }
+
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+      event.target.playVideo();
+    }
+
+    // 5. The API calls this function when the player's state changes.
+    //    The function indicates that when playing a video (state=1),
+    //    the player should play for six seconds and then stop.
+    var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 0);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+  </script>
+  
+
+</body>
+</html>

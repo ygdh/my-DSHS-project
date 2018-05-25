@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>본관동-분임 토의실</title>
+<body>
+  <h1>분임 토의실</h1>
+  <div id="photosphere"></div>
+<link rel="stylesheet" href="https://photo-sphere-viewer.js.org/node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.css">
+<script src="https://photo-sphere-viewer.js.org/node_modules/three/build/three.min.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/d.js/lib/D.min.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/dot/doT.min.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/uevent/uevent.min.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/three/examples/js/renderers/CanvasRenderer.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/three/examples/js/renderers/Projector.js"></script>
+<script src="https://photo-sphere-viewer.js.org/node_modules/photo-sphere-viewer/dist/photo-sphere-viewer.min.js"></script>
+
+
+<script>
+  var PSV = new PhotoSphereViewer({
+    panorama: "https://i.imgur.com/vfCrmDJ.jpg",
+    container: 'photosphere',
+    caption: '대구과학고등학교 본관동 3층 분임 토의실',
+    loading_img: "https://photo-sphere-viewer.js.org/assets/photosphere-logo.gif",
+    navbar: 'autorotate zoom download caption fullscreen',
+    default_fov: 70,
+    default_lat: 0.3,
+    mousewheel: false,
+    size: {
+      height: 800
+    }
+  });
+</script>
+<form action = "/location/인터넷 룸/" method="post">
+  {% csrf_token %}
+  <button name="choice" >인터넷룸으로 가기</button>
+</form>
+
+  
+
+</body>
+</html>
