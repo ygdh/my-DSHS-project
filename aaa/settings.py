@@ -25,7 +25,7 @@ SECRET_KEY = 'b!r5yb&+kr@r)no2&=acanswd0(62yi6evr6x39#5glr88m)yr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'dshsmaps.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'DSHSmaps.pythonanywhere.com']
 
 
 # Application definition
